@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id" data-type="software">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="page-type" content="software">
+<meta name="site-kind" content="software">
+<title>Library DWG Gratis — draftr</title>
+<meta name="description" content="Paket awal library DWG draftr: template lembar A3, katalog simbol, dan blok denah dasar. Entitas CAD asli, satuan mm, gratis diunduh.">
+<meta property="og:title" content="Library DWG Gratis — draftr">
+<meta property="og:description" content="Template lembar A3, katalog simbol, dan 12 blok denah dasar. DWG asli, satuan mm, gratis.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/blok-denah-dasar.png">
+<link rel="icon" type="image/png" href="img/logo-draftr.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111113; --bg2:#17171a; --panel:#1b1b1f; --line:#2a2a30;
+    --ink:#f5f5f5; --mut:#a7a7ae; --grn:#2ecc71; --grn-d:#25a45b;
+    --edge:clamp(20px,6vw,72px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .edge{padding-left:var(--edge);padding-right:var(--edge);max-width:1440px;margin:0 auto}
+  .mono{font-family:'JetBrains Mono',monospace}
+
+  /* ---------- top bar ---------- */
+  header{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{width:38px;height:38px;border-radius:10px;display:block}
+  .brand b{font-size:19px;font-weight:800;letter-spacing:-.02em}
+  .brand span{color:var(--mut);font-size:13px;font-weight:500}
+  .top-cta{font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--line);padding:9px 16px;border-radius:999px;transition:border-color .18s ease,transform .12s ease}
+  .top-cta:hover{border-color:var(--grn)}
+  .top-cta:active{transform:scale(.97)}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:calc(100svh - 84px);display:flex;flex-direction:column;justify-content:center;padding-top:24px;padding-bottom:56px}
+  .kick{color:var(--grn);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+  h1{font-size:clamp(40px,6.4vw,84px);line-height:1.02;font-weight:800;letter-spacing:-.03em;max-width:12em}
+  h1 em{font-style:normal;color:var(--grn)}
+  .sub{color:var(--mut);font-size:clamp(16px,1.6vw,19px);line-height:1.55;max-width:34em;margin-top:22px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--grn);color:#0b0f0c;font-weight:700;font-size:16px;text-decoration:none;padding:15px 26px;border-radius:14px;transition:transform .15s ease,background .18s ease,box-shadow .18s ease}
+  .btn:hover{background:#35dc7d;transform:translateY(-2px);box-shadow:0 10px 28px rgba(46,204,113,.22)}
+  .btn:active{transform:translateY(0) scale(.98)}
+  .btn svg{width:18px;height:18px}
+  .ghost{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 6px;position:relative}
+  .ghost::after{content:"";position:absolute;left:6px;right:100%;bottom:9px;height:2px;background:var(--grn);transition:right .25s ease}
+  .ghost:hover::after{right:6px}
+  .hero-vis{margin-top:48px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:
+    linear-gradient(rgba(245,245,245,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,245,245,.045) 1px,transparent 1px),var(--bg2);
+    background-size:36px 36px}
+  .hero-vis img{width:100%;display:block}
+
+  /* ---------- sections ---------- */
+  section{padding-top:96px;padding-bottom:96px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:40px}
+  h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;letter-spacing:-.025em}
+  .sec-head p{color:var(--mut);font-size:15px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .18s ease,border-color .18s ease}
+  a.card:hover{transform:translateY(-2px);border-color:#3a3a42}
+  .card .vis{overflow:hidden;background:var(--bg2)}
+  .card .vis img{width:100%;height:250px;object-fit:cover;object-position:top center;display:block;transition:transform .35s ease}
+  a.card:hover .vis img{transform:scale(1.025)}
+  .card .body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card h3{font-size:20px;font-weight:700;letter-spacing:-.015em}
+  .card p{color:var(--mut);font-size:15px;line-height:1.55;flex:1}
+  .meta{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+  .fmt{color:var(--mut);font-size:13px}
+  .fmt b{color:var(--ink);font-weight:600}
+  .dl{color:var(--grn);font-weight:700;font-size:15px;display:inline-flex;gap:8px;align-items:center}
+  .dl svg{width:16px;height:16px}
+  .card.wide{grid-column:1/-1}
+  .card.wide .vis img{height:340px}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{border:1px solid var(--line);border-radius:20px;padding:28px;background:var(--bg2)}
+  .step .n{color:var(--grn);font-weight:600;font-size:14px;margin-bottom:14px}
+  .step h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  .step p{color:var(--mut);font-size:15px;line-height:1.55}
+
+  .band{border:1px solid var(--line);border-radius:20px;background:var(--bg2);padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  .band h2{margin-bottom:14px}
+  .band p{color:var(--mut);font-size:16px;line-height:1.6}
+  .spec{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .spec li{border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:14.5px;display:flex;justify-content:space-between;gap:14px;background:var(--bg)}
+  .spec li span{color:var(--mut)}
+  .spec li b{font-weight:600;text-align:right}
+
+  footer{border-top:1px solid var(--line);padding-top:34px;padding-bottom:42px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;color:var(--mut);font-size:14px}
+  footer a{color:var(--ink);font-weight:600;text-decoration:none;position:relative}
+  footer a::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:2px;background:var(--grn);transition:right .25s ease}
+  footer a:hover::after{right:0}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .band{grid-template-columns:1fr}
+    .card .vis img{height:220px}
+    .card.wide .vis img{height:240px}
+    section{padding-top:64px;padding-bottom:64px}
+  }
+</style>
+</head>
+<body>
+
+<header class="edge">
+  <a class="brand" href="#">
+    <img src="img/logo-draftr.png" alt="draftr">
+    <b>draftr</b><span>library</span>
+  </a>
+  <a class="top-cta" href="https://www.threads.net/@draftr.dwg" target="_blank" rel="noopener">@draftr.dwg</a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero edge">
+    <p class="kick">Paket Awal v1 — Gratis</p>
+    <h1>Library DWG untuk drafter Indonesia.</h1>
+    <p class="sub">Template lembar A3, katalog simbol, dan blok denah dasar — digambar sebagai entitas CAD asli, satuan milimeter, siap salin ke gambar kerjamu. Tanpa gambar ulang, tanpa geometri polos hasil converter.</p>
+    <div class="cta-row">
+      <a class="btn" href="files/draftr-library-v1.zip" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg>
+        Download semua — ZIP · 120 KB
+      </a>
+      <a class="ghost" href="#isi">Lihat isi paket</a>
+    </div>
+    <div class="hero-vis">
+      <img src="img/blok-denah-dasar.png" alt="Lembar Blok Denah Dasar draftr: 12 simbol denah siap salin">
+    </div>
+  </div>
+
+  <!-- ISI PAKET -->
+  <section class="edge" id="isi">
+    <div class="sec-head">
+      <h2>Isi paket</h2>
+      <p>5 file DWG — masing-masing juga tersedia sebagai DXF.</p>
+    </div>
+    <div class="grid">
+
+      <a class="card wide" href="files/draftr-blok-denah-dasar.dwg" download>
+        <div class="vis"><img src="img/blok-denah-dasar.png" alt="Blok Denah Dasar draftr"></div>
+        <div class="body">
+          <h3>Blok Denah Dasar</h3>
+          <p>12 simbol denah siap salin: pintu 1 daun, pintu 2 daun, pintu geser, jendela, WC duduk, WC jongkok, wastafel, bak mandi, shower, bubble grid, panah utara, dan tanda potongan.</p>
+          <div class="meta">
+            <span class="fmt mono">DWG · <b>30 KB</b> &nbsp;|&nbsp; DXF tersedia di ZIP</span>
+            <span class="dl">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="files/draftr-template-lembar-a3.dwg" download>
+        <div class="vis"><img src="img/template-lembar-a3.png" alt="Template Lembar A3 draftr"></div>
+        <div class="body">
+          <h3>Template Lembar A3</h3>
+          <p>Lembar kerja A3 standar draftr: grid lembar, blok kop, tabel revisi, dan kolom catatan — mulai gambar baru dari lembar yang benar.</p>
+          <div class="meta">
+            <span class="fmt mono">DWG · <b>14 KB</b></span>
+            <span class="dl">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="files/draftr-katalog-simbol-referensi.dwg" download>
+        <div class="vis"><img src="img/katalog-simbol-referensi.png" alt="Katalog Simbol Referensi G-901"></div>
+        <div class="body">
+          <h3>Katalog Simbol Referensi</h3>
+          <p>Lembar G-901: 18 simbol referensi gambar kerja — penanda potongan, elevasi, detail, bubble grid, dan penanda revisi.</p>
+          <div class="meta">
+            <span class="fmt mono">DWG · <b>14 KB</b></span>
+            <span class="dl">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="files/draftr-katalog-simbol-teks.dwg" download>
+        <div class="vis"><img src="img/katalog-simbol-teks.png" alt="Katalog Simbol Teks G-902"></div>
+        <div class="body">
+          <h3>Katalog Simbol Teks</h3>
+          <p>Lembar G-902: simbol teks dan anotasi — leader, penanda material, dan keterangan standar gambar kerja.</p>
+          <div class="meta">
+            <span class="fmt mono">DWG · <b>16 KB</b></span>
+            <span class="dl">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="files/draftr-katalog-simbol-garis.dwg" download>
+        <div class="vis"><img src="img/katalog-simbol-garis.png" alt="Katalog Simbol Garis"></div>
+        <div class="body">
+          <h3>Katalog Simbol Garis</h3>
+          <p>Simbol garis dan linetype standar: garis potongan, garis tersembunyi, garis sumbu, dan pola garis gambar kerja.</p>
+          <div class="meta">
+            <span class="fmt mono">DWG · <b>19 KB</b></span>
+            <span class="dl">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CARA PAKAI -->
+  <section class="edge">
+    <div class="sec-head">
+      <h2>Cara pakai</h2>
+      <p>Tiga langkah, langsung bekerja.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="n mono">01</p>
+        <h3>Unduh &amp; buka</h3>
+        <p>Ambil ZIP-nya atau file satuan. Semua file bersatuan milimeter dan digambar 1:1 di Model — buka di AutoCAD versi 2010 ke atas.</p>
+      </div>
+      <div class="step">
+        <p class="n mono">02</p>
+        <h3>Salin simbolnya</h3>
+        <p>Buka file katalog atau blok, pilih simbol yang perlu, lalu COPYBASE dari titik acuannya ke gambar kerjamu.</p>
+      </div>
+      <div class="step">
+        <p class="n mono">03</p>
+        <h3>Jadikan block</h3>
+        <p>Untuk simbol yang berulang, bungkus sekali dengan WBLOCK atau BLOCK — setelah itu tinggal disisipkan, bukan digambar ulang.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDAR -->
+  <section class="edge">
+    <div class="band">
+      <div>
+        <h2>Digambar sebagai entitas, bukan garis polos.</h2>
+        <p>Setiap simbol di paket ini tersusun dari entitas CAD yang semestinya, mengikuti standar gambar draftr — adaptasi USNCS dengan skala metrik dan teks Indonesia. Gratis dipakai untuk pekerjaan pribadi dan kantor; jangan dijual ulang sebagai paket.</p>
+      </div>
+      <ul class="spec mono">
+        <li><span>Format</span><b>DWG (AC1032) + DXF</b></li>
+        <li><span>Satuan</span><b>Milimeter · 1:1 di Model</b></li>
+        <li><span>Isi</span><b>5 file · 30+ simbol</b></li>
+        <li><span>Lisensi</span><b>Gratis pakai · no resale</b></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="edge">
+  <span>draftr — shop drawing parametrik untuk drafter Indonesia.</span>
+  <span>Ikuti prosesnya di <a href="https://www.threads.net/@draftr.dwg" target="_blank" rel="noopener">Threads @draftr.dwg</a></span>
+</footer>
+
+</body>
+</html>
