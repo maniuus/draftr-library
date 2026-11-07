@@ -1,4 +1,4 @@
-LIBRARY DWG DRAFTR — PAKET AWAL v2
+LIBRARY DWG DRAFTR — PAKET v3
 ==================================
 
 Isi paket:
@@ -16,6 +16,17 @@ Isi paket:
    draftr-blok-jendela, draftr-blok-wc-duduk, draftr-blok-wc-jongkok,
    draftr-blok-wastafel, draftr-blok-bak-mandi, draftr-blok-shower,
    draftr-blok-bubble-grid, draftr-blok-panah-utara, draftr-blok-tanda-potongan
+   (masing-masing .dwg + .dxf).
+7. Elemen parametrik (BARU di v3) — digenerate dari parameter oleh generator
+   draftr dan terverifikasi terhadap gambar standar; entitas semantik asli
+   (HATCH, ARC, layer bernama) — bukan garis polos:
+   draftr-A8-dinding-bata-merah (segmen dinding bata tebal 150, HATCH ANSI32),
+   draftr-A17-pintu-swing-1-daun (daun 800, busur ayun ARC),
+   draftr-A17-pintu-swing-2-daun (2 x 800),
+   draftr-A17-pintu-lipat (5 panel kaca pitch 320),
+   draftr-A18-jendela-1-daun (potongan, bukaan 600),
+   draftr-A18-jendela-2-daun (potongan, bukaan 1140),
+   draftr-A18-kaca-mati (potongan, bukaan 1140)
    (masing-masing .dwg + .dxf).
 
 Cara pakai:
